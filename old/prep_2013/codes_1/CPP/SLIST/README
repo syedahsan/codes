@@ -1,0 +1,15 @@
+The problem with templates is that compiler doesn't know what all template types will be available at the run time or while compiling the main which doesn't contain the class definition with templates
+
+eg. while compiling Slist.cpp; compiler compiled it generically
+    while compiling main.cpp; compiler compiled it normally
+    now while linking main.o with Slist.o; compiler checks that (eg) Slist<int> is not present inside Slist.o and throws and Undefind reference error. The problem here is that compiler didn't knew what compiling Slist.cpp that and <int> or <string> will be asked for.
+
+    To solve this problem; either predefine what datatypes as templates we'll be using and put them in the end for compiler to generate code for it;
+    eg. put Slist<int> x;
+            Slist <string> y;
+
+    in the end of .cpp file; BUT this is like defining macros.
+
+    A better solution is to include .cpp file in main.cpp or .h file. If you'll include .cpp inside .h file we'll get redefinition of previously declared here types of errors. which can be solved by putting the definitions inside .h file
+
+    Thats why the code has Slist.cpp/Slist.h & SList.h file. SList.h was created finally to solve all the problems.

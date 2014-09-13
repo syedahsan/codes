@@ -1,0 +1,7 @@
+
+Given an array of size n, you have n-1 integers in the array, and one of the n elements is a duplicate, find an efficient method of finding the duplicate.
+
+Partition the array in odd an even numbers. If there are more odd numbers than even, partition the odd numbers by the next bit and repeat. If there are more even numbers than odd, look up the duplicate in the even numbers partition.
+
+It is similar to the selection algorithm because on average the numbers left after each iteration is about half, so the complexity is approx:
+

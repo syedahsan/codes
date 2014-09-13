@@ -1,0 +1,19 @@
+C
+
+1) Declaring integer in C with only 3-bits
+	
+	works only with struct and int
+
+	struct temp
+	{
+		int a:3;
+		// declare a with 3 bits space and rest 32-3 will be wasted since it is in struct
+		// also b will be 
+		int a:3, b:5;
+		// will declare a with 3 bits and b with 5 bits and rest 32-(3+5) will be wasted
+
+	}
+
+C++
+
+2) placement "new" constructer in C++

@@ -1,0 +1,8 @@
+1) LCA withouth parent pointer and space
+2) construct a binary tree with pre and in order
+3) construct BST with postorder
+4) path between 2 nodes
+
+5) recursive fns which not coded
+
+6) B-tree to singly and doubly linked list
