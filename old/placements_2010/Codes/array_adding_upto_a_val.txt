@@ -1,0 +1,4 @@
+1) If 2 nos - Use Hash Tables ( if no is x, check for (sum-x) in hash table, if not found insert x into hash table, else output (x, sum-x) as a result)
+
+
+2) If any nos - Dynamic Programming ?

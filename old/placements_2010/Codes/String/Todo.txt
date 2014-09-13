@@ -1,0 +1,7 @@
+Implement
+
+1) strstr -- Done using constant memory
+2) strtok
+3) Removing extra space, inplace algo -- Done with using another string, have to code the inplace routine
+4) Reversing the whole string, and then reverse the individual words, using the same routine
+5) Valid Anagrams

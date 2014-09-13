@@ -1,0 +1,9 @@
+#include<iostream>
+using namespace std;
+
+int main(void)
+{
+	char *p = "Manish";
+	char str[] = "Lokesh";
+	str = "Manish";
+}

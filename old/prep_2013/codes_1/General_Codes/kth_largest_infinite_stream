@@ -1,0 +1,79 @@
+Kth Largest from an infinite stream
+Problem:
+ Write an efficient program for printing k largest elements in an array. Elements in array can be in any order.
+For example, if given array is [1, 23, 12, 9, 30, 2, 50] and you are asked for the largest 3 elements i.e., k = 3 then your program should print 50, 30 and 23.
+
+Solution:
+
+    Create a min-heap of size K.
+    Fill the heap with first K elements from the stream
+    Once K elements are filled Build-heap from those elements
+    now ROOT will have the smallest of K largest elements of the stream.
+    when the next element in the stream is available check NO > ROOT.
+    If so, replace ROOT with that Number and call Min-Heapify of ROOT.
+    At any point Stream_length >= K we can give the Kth Largest by Returning the ROOT of MIN-HEAP.
+
+
+Complexity: O(N + log(K) ),where N is the length of Stream
+
+Code:
+
+void MinHeapify(int a[],int i,int n)
+{
+    int left=0;
+    int right=0;
+    int max=0;
+    while(i<=n/2-1)
+    {
+        left=2*i+1;
+        right=2*i+2;
+        max=i;
+        if(left<n && a[left]<a[max])
+            max=left;
+        if(right<n && a[right]<a[max])
+            max=right;
+        if(max!=i)
+        {
+            a[max]=a[max]^a[i];
+            a[i]=a[max]^a[i];
+            a[max]=a[max]^a[i];
+        }
+        else
+            break;
+        i=max;
+    }
+}
+ 
+void BuildMinHeap(int a[],int n)
+{
+    int i=0;
+    for(i=n/2-1;i>=0;i--)
+        MinHeapify(a,i,n);
+}
+ 
+findKthLargest(int I[],int N,int k)
+{
+    int i=0;
+    int a[k];
+    for(i=0;i<N;i++)
+    {
+        if(i<k-1)
+        {
+            a[i]=I[i];
+        }
+        else if(i==k-1)
+        {
+            a[i]=I[i];
+            BuildMinHeap(a,k);
+        }
+        else
+        {
+            if(I[i]>a[0])
+            {
+                a[0]=I[i];
+                MinHeapify(a,0,k);
+            }
+        }
+    }
+    printf("Kth Largest Element:%d",a[0]);
+}

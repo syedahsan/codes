@@ -1,0 +1,39 @@
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+
+#define DAY_MIN 1440 /* #minutes in a day */
+
+int main()
+{
+    int day[DAY_MIN] = {0};
+    int m, k;
+    int i, j;
+    int a, b, c, d;
+    
+    scanf("%d %d", &m, &k);
+    for (i = 0; i < m; ++i) {
+        scanf("%d %d %d %d", &a, &b, &c, &d);
+        for (j = a*60 + b; j != c*60 + d; j = (j+1)%DAY_MIN) {
+        //for (j = a*60 + b; j != c*60 + d; ++j) {
+            day[j] = 1;
+        }
+    }
+    
+    int flag = -1;
+    int start = -1;
+    for (i = 0; i < DAY_MIN; ++i) {
+        if (day[i] == 0 && flag != 0) {
+            start = i;
+            flag = 0;
+        } else if (day[i] == 1 && flag != 1) {
+            flag = 1;
+            if (start != -1 && i - start >= k) {
+                printf("%02d %02d %02d %02d\n", start/60, start%60, i/60, i%60);
+            }
+        }
+    }
+    if (flag != 1 && i - start >= k) {
+           printf("%02d %02d 00 00\n", start/60, start%60);
+    }
+    
+    return 0;
+}

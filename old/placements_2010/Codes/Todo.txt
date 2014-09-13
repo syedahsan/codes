@@ -1,0 +1,34 @@
+1) Career Cup
+	- Datastructures
+	- Database
+	- Trees and Graphs
+	- String Manipulation
+	- Puzzles
+
+2) Tech Interview
+	- Puzzles
+
+3) Placements India
+
+4) Crack the Interview
+
+
+
+2) Tree is symmetric or not
+4) Number of Binary Tree - with n numbers - Catalan number.
+5) BST to SingleLL, DoubleLL
+8) Subtree in BT which is BST
+9) Sum of path = n
+
+
+* - Preorder, Postorder and Inorder in one Go - 
+traverse(s)
+{
+	if(s) {
+		preorder_queue.add(s);
+		traverse(s->left);
+		inorder_queue.add(s);
+		traverse(s->right);
+		postorder_queue(s);
+	}
+}
